@@ -1,17 +1,4 @@
-properties([
-                        parameters([
-                            choice(
-                                choices: ['package', 'compile'], 
-                                name: 'arg'
-                            ),
-                            string(
-                                defaultValue:'', 
-                                name: 'version', 
-                                trim: true
-                            )
-                        ])
-                    ])
-    pipeline {
+pipeline {
     agent any
     stages {
         stage('checkout') {
@@ -21,3 +8,5 @@ properties([
         }
     }
 }
+
+    
