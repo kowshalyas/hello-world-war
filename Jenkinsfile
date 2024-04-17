@@ -14,7 +14,12 @@ pipeline {
             }
         
         }
+        stage('deploy') {
+            steps {
+                sh 'scp /home/slave9/workspace/pipeline_job2/target/hello-world-war-1.0.0.war root@172.31.17.156:/opt/apache-tomcat-8.5.100/webapps/'
+            }
+        
+        }
+        
     }
 }
-
-    
