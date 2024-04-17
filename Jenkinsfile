@@ -1,10 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('checkout') {
+        stage('clone') {
             steps {
-                echo 'Hello World'
+                sh 'rm -rf hello-world-war '
+                sh 'git clone https://github.com/kowshalyas/hello-world-war.git'
             }
+        
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        
         }
     }
 }
